@@ -1,0 +1,116 @@
+<!-- build_xlib.xml
+
+Description:
+	This ANT script constructs <project root>/xlib.
+
+	To use this script, you must update properties is <project root>/scripts/build.properties or overide
+	them from commandline (using -D option). For example:
+
+		set PATH=C:\depot\external\apache-ant\apache-ant-1.8.4\bin;%PATH%
+		ant -XX:MaxPermSize=512m -Dexternal.dir=c:/depot/external -f scripts/build_xlib.xml
+
+	or
+
+		set PATH=C:\depot\external\apache-ant\apache-ant-1.8.4\bin;%PATH%
+		set ANT_OPTS=-XX:MaxPermSize=512m -Dexternal.dir=%NLEXTERNALDIR2%
+		ant -f scripts/build_xlib.xml -v
+-->
+
+<project name="build_xlib" default="all" basedir="..">
+	<!-- Properties -->
+
+	<property name="nlbuildroot" location="${basedir}"/>
+
+	<property file="${nlbuildroot}/scripts/build.properties" />
+	<property file="${nlbuildroot}/scripts/build-scripts.properties" />
+
+	<!-- Dump properties -->
+	<echoproperties />
+
+	<echo message="INFO: Dump properties completed" />
+
+	<!-- Sanity checks -->
+	<fail message="external.dir is not set" unless="external.dir" />
+	<fail message="external.dir is empty">
+		<condition>
+			<equals arg1="${external.dir}" arg2="" trim="true" />
+		</condition>
+	</fail>
+	<available file="${external.dir}" type="dir" property="local.external.dir_exists" />
+	<fail message="external.dir directory does not exist - ${external.dir}" unless="local.external.dir_exists" />
+
+	<echo message="INFO: Sanity check completed (no error)" />
+
+	<!-- Targets-->
+	<target name="all" depends="clean, prepare_external_java" />
+
+	<target name="prepare_external_java">
+		<mkdir dir="${xlib_jar_dir}" />
+
+		<!--  Unpack required Destiny artifacts -->
+		<unzip src="${xlib_destiny_build_artifacts_bin_zip_file}" dest="${xlib_jar_dir}" overwrite="false">
+			<patternset>
+				<include name="nextlabs-openaz-pep.jar" />
+				<include name="nextlabs-openaz-pep/java/libs/openaz-pep-0.0.1-SNAPSHOT.jar" />
+				<include name="nextlabs-openaz-pep/java/libs/openaz-xacml-0.0.1-SNAPSHOT.jar" />
+				<include name="crypt.jar" />
+			</patternset>
+			<mapper type="flatten" />
+		</unzip>
+
+		<!--  Copy java SDK jar and keymanagement service jar from fate artifacts -->
+		<unzip src="${xlib_fate_build_artifacts_bin_zip_file}" dest="${xlib_jar_dir}" overwrite="false">
+			<patternset>
+				<include name="bin/java/nlJavaSDK2.jar" />
+				<include name="bin/java/KeyManagementService.jar" />
+			</patternset>
+			<mapper type="flatten" />
+		</unzip>
+
+		<!--  Copy RMJavaSDK jar from RMJavaSDK artifacts -->
+		<unzip src="${xlib_rmjavasdk_build_artifacts_bin_zip_file}" dest="${xlib_jar_dir}" overwrite="false">
+			<patternset>
+				<include name="RMJavaSdk.jar" />
+			</patternset>
+			<mapper type="flatten" />
+		</unzip>
+
+		<copy file="${external.dir}/commons-vfs/commons-vfs-2.0/commons-vfs2-2.0.jar"	todir="${xlib_jar_dir}" preservelastmodified="true" overwrite="false" verbose="true" />
+		<copy file="${external.dir}/ehcache/ehcache-2.10.1/ehcache-2.10.1.jar"			todir="${xlib_jar_dir}" preservelastmodified="true" overwrite="false" verbose="true" />
+		<copy file="${external.dir}/jaxws-ri/jaxws-ri-2.2.8/lib/gmbal-api-only.jar"		todir="${xlib_jar_dir}" preservelastmodified="true" overwrite="false" verbose="true" />
+		<copy file="${external.dir}/jaxws-ri/jaxws-ri-2.2.8/lib/jaxb-impl.jar"			todir="${xlib_jar_dir}" preservelastmodified="true" overwrite="false" verbose="true" />
+		<copy file="${external.dir}/jaxws-ri/jaxws-ri-2.2.8/lib/jaxws-api.jar"			todir="${xlib_jar_dir}" preservelastmodified="true" overwrite="false" verbose="true" />
+		<copy file="${external.dir}/jaxws-ri/jaxws-ri-2.2.8/lib/jaxws-rt.jar"			todir="${xlib_jar_dir}" preservelastmodified="true" overwrite="false" verbose="true" />
+		<copy file="${external.dir}/jaxws-ri/jaxws-ri-2.2.8/lib/management-api.jar"		todir="${xlib_jar_dir}" preservelastmodified="true" overwrite="false" verbose="true" />
+		<copy file="${external.dir}/jaxws-ri/jaxws-ri-2.2.8/lib/policy.jar"				todir="${xlib_jar_dir}" preservelastmodified="true" overwrite="false" verbose="true" />
+		<copy file="${external.dir}/jaxws-ri/jaxws-ri-2.2.8/lib/stax-ex.jar"			todir="${xlib_jar_dir}" preservelastmodified="true" overwrite="false" verbose="true" />
+		<copy file="${external.dir}/jaxws-ri/jaxws-ri-2.2.8/lib/streambuffer.jar"		todir="${xlib_jar_dir}" preservelastmodified="true" overwrite="false" verbose="true" />
+		<copy file="${external.dir}/pdfbox/pdfbox-2.0.0/pdfbox-app-2.0.0.jar"			todir="${xlib_jar_dir}" preservelastmodified="true" overwrite="false" verbose="true" />
+		<copy file="${external.dir}/slf4j/slf4j-1.7.13/slf4j-api-1.7.13.jar"			todir="${xlib_jar_dir}" preservelastmodified="true" overwrite="false" verbose="true" />
+		<copy file="${external.dir}/commons-lang/commons-lang-2.6/commons-lang-2.6.jar"	todir="${xlib_jar_dir}" preservelastmodified="true" overwrite="false" verbose="true" />
+		<copy file="${external.dir}/commons-lang3/commons-lang3-3.3.2/commons-lang3-3.3.2.jar"	todir="${xlib_jar_dir}" preservelastmodified="true" overwrite="false" verbose="true" />
+		<copy file="${external.dir}/commons-logging/commons-logging-1.1.1/commons-logging-1.1.1.jar"	todir="${xlib_jar_dir}" preservelastmodified="true" overwrite="false" verbose="true" />
+		<copy file="${external.dir}/guava/19.0/guava-19.0.jar"							todir="${xlib_jar_dir}" preservelastmodified="true" overwrite="false" verbose="true" />
+		<copy file="${external.dir}/httpclient/httpclient-4.3.1/httpclient-4.3.1.jar"	todir="${xlib_jar_dir}" preservelastmodified="true" overwrite="false" verbose="true" />
+		<copy file="${external.dir}/httpclient/httpclient-4.3.1/httpcore-4.3.jar"	todir="${xlib_jar_dir}" preservelastmodified="true" overwrite="false" verbose="true" />
+		<copy file="${external.dir}/jackson/2.6.0/jackson-annotations-2.6.0.jar"	todir="${xlib_jar_dir}" preservelastmodified="true" overwrite="false" verbose="true" />
+		<copy file="${external.dir}/jackson/2.6.0/jackson-core-2.6.3.jar"	todir="${xlib_jar_dir}" preservelastmodified="true" overwrite="false" verbose="true" />
+		<copy file="${external.dir}/jackson/2.6.0/jackson-databind-2.6.3.jar"	todir="${xlib_jar_dir}" preservelastmodified="true" overwrite="false" verbose="true" />
+
+		<copy file="${external.dir}/jna/jna_4.1.0/jna.jar"	tofile="${xlib_jar_dir}/jna-4.1.0.jar" preservelastmodified="true" overwrite="false" verbose="true" />
+
+		<mkdir dir="${xlib_jar_dir}/tomcat-7.0.29"/>
+		<copy todir="${xlib_jar_dir}/tomcat-7.0.29" preservelastmodified="true" overwrite="false" verbose="true">
+			<fileset dir="${external.dir}/tomcat/apache-tomcat-7.0.29/lib"/>
+		</copy>
+
+		<mkdir dir="${xlib_jar_dir}/Windchill-10.1"/>
+		<copy todir="${xlib_jar_dir}/Windchill-10.1" preservelastmodified="true" overwrite="false" verbose="true">
+			<fileset dir="${external.dir}/Windchill/Windchill-10.1"/>
+		</copy>
+	</target>
+
+	<target name="clean">
+		<delete dir="${xlib_dir}" />
+	</target>
+</project>

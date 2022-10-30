@@ -1,0 +1,135 @@
+<!-- build_compile.xml
+
+Description:
+	This ANT script publishes installers and build artifacts to s:/build.
+	
+	To use this script, you must update properties is <project root>/scripts/build.properties or overide 
+	them from commandline (using -D option). For example:
+		
+		set PATH=C:\depot\external\apache-ant\apache-ant-1.8.4\bin;%PATH%
+		ant -XX:MaxPermSize=512m -Dnlbuildroot=C:/depot/PolicyStudio/dev/BuildScript_1205 -Dexternal.dir=c:/depot/external -Dnlexternaldir=c:/depot/external -Dbuild_number=10001 -f scripts/build_publish.xml
+		
+	or
+		
+		set PATH=C:\depot\external\apache-ant\apache-ant-1.8.4\bin;%PATH%
+		set ANT_OPTS=-XX:MaxPermSize=512m -Dnlbuildroot=%NLBUILDROOT% -Dexternal.dir=%NLEXTERNALDIR% -Dnlexternaldir=%NLEXTERNALDIR% -Dbuild_number=10001 
+		ant -f scripts/build_publish.xml -v	
+-->
+<project name="build_compile" default="all" basedir=".">
+
+	<!-- Propery files -->
+	<property file="${basedir}/build.properties" />
+	<property environment="env" />
+
+	<!-- Global properties -->
+	<property name="xlib_dir" location="${nlbuildroot}/xlib" />
+	<property name="xlib_jar_dir" location="${xlib_dir}/jar" />
+	<property name="build_dir" location="${nlbuildroot}/build" />
+	<property name="classes_dir" value="${build_dir}/classes" />
+	<property name="package_dir" value="${build_dir}/${package_name}" />
+	<property name="dist_zip_file_name" value="${package_name}-${version_str}-${version_build_short}-${build_date_long}.zip" />
+
+	<!-- Dump properties -->
+	<echoproperties />
+
+	<echo message="INFO: Dump properties completed" />
+
+	<!-- Sanity checks -->
+	<fail message="nlbuildroot is not set" unless="nlbuildroot" />
+	<fail message="nlbuildroot is empty">
+		<condition>
+			<equals arg1="${nlbuildroot}" arg2="" trim="true" />
+		</condition>
+	</fail>
+	<available file="${nlbuildroot}" type="dir" property="local.nlbuildroot_exists" />
+	<fail message="nlbuildroot directory does not exist - ${nlbuildroot}" unless="local.nlbuildroot_exists" />
+
+	<echo message="INFO: Sanity check completed (no error)" />
+
+	<path id="compile.classpath">
+		<fileset dir="${xlib_jar_dir}">
+			<include name="**/*.jar" />
+		</fileset>
+	</path>
+	<pathconvert property="classpathProp" refid="compile.classpath"/>
+
+<echo>Classpath is ${classpathProp}</echo>
+
+	<!-- Global tasks -->
+	<tstamp>
+		<format property="local.now" pattern="EEE, d MMM yyyy HH:mm:ss Z" />
+	</tstamp>
+
+	<echo message="version_str = ${version_str}" />
+	<echo message="time = ${local.now}" />
+
+	<!-- Targets -->
+	<target name="all" description="Default for all" depends="clean, compile, package" />
+
+	<target name="clean" description="Delete all build artifacts" depends="">
+		<delete includeemptydirs="true" dir="${build_dir}" />
+	</target>
+
+	<target name="compile" description="Compile WindchillEM Code" depends="clean">
+		<mkdir dir="${classes_dir}" />
+		
+		<javac srcdir="${nlbuildroot}/src" destdir="${classes_dir}">
+			<classpath refid="compile.classpath" />
+			<include name="**/*.java" />
+			<!-- <exclude name="**/Test*.java" /> -->
+		</javac>
+		<jar destfile="${build_dir}/${package_name}.jar" basedir="${classes_dir}">
+			<manifest>
+				<attribute name="Java-Version" value="${java.version}" />
+				<attribute name="Implementation-Vendor" value="NextLabs, Inc." />
+				<attribute name="Implementation-Title" value="${product_name}" />
+				<attribute name="Implementation-Version" value="${version_str} (${build_number})" />
+			</manifest>
+				<fileset dir="${xlib_jar_dir}" includes="commons-vfs2-2.0.jar" />
+				<fileset dir="${xlib_jar_dir}" includes="KeyManagementService.jar" />
+				<fileset dir="${xlib_jar_dir}" includes="jna-4.1.0.jar" />
+				<fileset dir="${xlib_jar_dir}" includes="nlJavaSDK2.jar" />
+				<fileset dir="${xlib_jar_dir}" includes="RMJavaSdk.jar" />
+				<fileset dir="${xlib_jar_dir}" includes="slf4j-api-1.7.13.jar" />
+				<fileset dir="${xlib_jar_dir}" includes="ehcache-2.10.1.jar" />
+				<fileset dir="${xlib_jar_dir}" includes="pdfbox-app-2.0.0.jar" />
+				<fileset dir="${xlib_jar_dir}" includes="commons-lang-2.6.jar" />
+				<fileset dir="${xlib_jar_dir}" includes="commons-lang3-3.3.2.jar" />
+				<fileset dir="${xlib_jar_dir}" includes="commons-logging-1.1.1.jar" />
+				<fileset dir="${xlib_jar_dir}" includes="guava-19.0.jar" />
+				<fileset dir="${xlib_jar_dir}" includes="httpclient-4.3.1.jar" />
+				<fileset dir="${xlib_jar_dir}" includes="httpcore-4.3.jar" />
+				<fileset dir="${xlib_jar_dir}" includes="jackson-annotations-2.6.0.jar" />
+				<fileset dir="${xlib_jar_dir}" includes="jackson-core-2.6.3.jar" />
+				<fileset dir="${xlib_jar_dir}" includes="jackson-databind-2.6.3.jar" />
+				<fileset dir="${xlib_jar_dir}" includes="nextlabs-openaz-pep.jar" />
+				<fileset dir="${xlib_jar_dir}" includes="openaz-pep-0.0.1-SNAPSHOT.jar" />
+				<fileset dir="${xlib_jar_dir}" includes="openaz-xacml-0.0.1-SNAPSHOT.jar" />
+				<fileset dir="${xlib_jar_dir}" includes="crypt.jar" />
+				<fileset dir="${xlib_jar_dir}/Windchill-10.1/srclib/jtagger/" includes="nextlabs-jtagger1.7.jar" />
+				<fileset dir="${xlib_jar_dir}/Windchill-10.1/srclib/jtagger/" includes="nextlabs-jtagger1.6.jar" />
+				<fileset dir="${nlbuildroot}/properties" includes="*" />
+
+		</jar>
+	</target>
+
+	<target name="package" description="packages the plugin module">
+		<mkdir dir="${package_dir}" />
+
+		<copy todir="${package_dir}" overwrite="true">
+			<fileset file="${build_dir}/*.jar" />
+		</copy>
+
+		<copy file="${nlbuildroot}/install.bat" todir="${package_dir}" overwrite="true"/>
+		<copy file="${nlbuildroot}/uninstall.bat" todir="${package_dir}" overwrite="true"/>
+		<copy file="${nlbuildroot}/product.xml" todir="${package_dir}" overwrite="true"/>
+		<copy file="${nlbuildroot}/Windchill Policy Model.bin" todir="${package_dir}" overwrite="true"/>
+		<fixcrlf srcdir="${package_dir}/" includes="**/*.bat" eol="dos" eof="add" />
+
+		<zip destfile="${build_dir}/${dist_zip_file_name}" encoding="UTF-8">
+			<fileset dir="${build_dir}">
+				<include name="${package_name}/**" />
+			</fileset>
+		</zip>
+	</target>
+</project>

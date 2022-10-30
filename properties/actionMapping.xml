@@ -1,0 +1,954 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<actionMapping>
+  <entry>
+    <url>delete.jsp</url>
+    <httpMethod>POST</httpMethod>
+    <action>DELETE</action>
+  </entry>
+  <entry>
+    <url>URLTemplateAction</url>
+    <httpMethod>GET</httpMethod>
+	<parameter name="ACTION">
+	<value>MULTI_OBJ_DELETE_DETAILS</value>
+	</parameter>
+    <action>DELETE</action>
+  </entry> 
+  <entry>
+    <url>URLTemplateAction</url>
+    <httpMethod>GET</httpMethod>
+	<parameter name="ACTION">
+	<value>MULTI_OBJ_DELETE</value>
+	</parameter>
+    <action>DELETE</action>
+  </entry>
+  <entry>
+    <url>create</url>
+    <httpMethod>POST</httpMethod>
+	<parameter name="actionName">
+	<value>create</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.windchill.enterprise.doc.forms.CreateDocFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+    <entry>
+    <url>create</url>
+    <httpMethod>GET</httpMethod>
+	<parameter name="actionName">
+	<value>create</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.windchill.enterprise.doc.forms.CreateDocFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+  <entry>
+    <url>create</url>
+    <httpMethod>POST</httpMethod>
+	<parameter name="actionName">
+	<value>create</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.windchill.enterprise.folder.forms.CreateFolderFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+    <entry>
+    <url>create</url>
+    <httpMethod>GET</httpMethod>
+	<parameter name="actionName">
+	<value>create</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.windchill.enterprise.folder.forms.CreateFolderFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+  <entry>
+    <url>createMulti</url>
+    <httpMethod>POST</httpMethod>
+	<parameter name="actionName">
+	<value>createMulti</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.windchill.enterprise.doc.forms.CreateMultiDocFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+    <entry>
+    <url>createMulti</url>
+    <httpMethod>GET</httpMethod>
+	<parameter name="actionName">
+	<value>createMulti</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.windchill.enterprise.doc.forms.CreateMultiDocFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+  <entry>
+    <url>createProductWizard</url>
+    <httpMethod>POST</httpMethod>
+	<parameter name="actionName">
+	<value>createProductWizard</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.windchill.enterprise.product.forms.CreateProductFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+ <entry>
+    <url>createProductWizard</url>
+    <httpMethod>GET</httpMethod>
+	<parameter name="actionName">
+	<value>createProductWizard</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.windchill.enterprise.product.forms.CreateProductFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+    <entry>
+    <url>createPartWizard</url>
+    <httpMethod>POST</httpMethod>
+	<parameter name="actionName">
+	<value>createPartWizard</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.windchill.enterprise.part.forms.CreatePartAndCADDocFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+      <entry>
+    <url>createPartWizard</url>
+    <httpMethod>GET</httpMethod>
+	<parameter name="actionName">
+	<value>createPartWizard</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.windchill.enterprise.part.forms.CreatePartAndCADDocFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+  
+  <entry>
+    <url>cutOrPaste</url>
+    <httpMethod>POST</httpMethod>
+	<parameter name="actionName">
+	<value>pasteAsCopy</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.windchill.pdmlink.object.operations.pasteAsCopy.forms.PasteFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+   <entry>
+    <url>cutOrPaste</url>
+    <httpMethod>GET</httpMethod>
+	<parameter name="actionName">
+	<value>pasteAsCopy</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.windchill.pdmlink.object.operations.pasteAsCopy.forms.PasteFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+   <entry>
+    <url>renameObjectWizard</url>
+    <httpMethod>POST</httpMethod>
+	<parameter name="actionName">
+	<value>renameGWT</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.windchill.enterprise.object.forms.RenameObjectFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+    <entry>
+    <url>renameDocumentWizard</url>
+    <httpMethod>POST</httpMethod>
+	<parameter name="actionName">
+	<value>renameDocumentWizard</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.windchill.enterprise.object.forms.RenameObjectFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+   <entry>
+    <url>renameObjectWizard</url>
+    <httpMethod>POST</httpMethod>
+	<parameter name="actionName">
+	<value>renameObjectWizard</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.windchill.enterprise.object.forms.RenameObjectFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+  <entry>
+    <url>AttachmentsEditServlet</url>
+    <httpMethod>POST</httpMethod>
+	<parameter name="actionName">
+	<value>edit_attachments</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+    <entry>
+    <url>AttachmentsEditServlet</url>
+    <httpMethod>GET</httpMethod>
+	<parameter name="actionName">
+	<value>edit_attachments</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+   <entry>
+    <url>edit</url>
+    <httpMethod>POST</httpMethod>
+	<parameter name="actionName">
+	<value>editDocument</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.core.components.forms.EditWorkableFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+     <entry>
+    <url>edit</url>
+    <httpMethod>GET</httpMethod>
+	<parameter name="actionName">
+	<value>editDocument</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.core.components.forms.EditWorkableFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+  <entry>
+    <url>URLTemplateAction</url>
+    <httpMethod>GET</httpMethod>
+	<parameter name="ACTION">
+	<value>CONTAINERMOVE</value>
+	</parameter>
+	<action>EDIT</action>
+  </entry>
+   <entry>
+    <url>URLTemplateAction</url>
+    <httpMethod>POST</httpMethod>
+	<parameter name="ACTION">
+	<value>CONTAINERMOVE</value>
+	</parameter>
+	<action>EDIT</action>
+  </entry>
+  <entry>
+    <url>generateForm</url>
+    <httpMethod>POST</httpMethod>
+	<parameter name="Action">
+	<value>ReviseItems</value>
+	</parameter>
+	<action>EDIT</action>
+  </entry>
+  <entry>
+    <url>generateForm</url>
+    <httpMethod>GET</httpMethod>
+	<parameter name="Action">
+	<value>ReviseItems</value>
+	</parameter>
+	<action>EDIT</action>
+  </entry>
+  <entry>
+    <url>URLTemplateAction</url>
+    <httpMethod>POST</httpMethod>
+	<parameter name="ACTION">
+	<value>SETSTATE</value>
+	</parameter>
+	<action>EDIT</action>
+  </entry>
+  <entry>
+    <url>URLTemplateAction</url>
+    <httpMethod>GET</httpMethod>
+	<parameter name="ACTION">
+	<value>SETSTATE</value>
+	</parameter>
+	<action>EDIT</action>
+  </entry>
+  <entry>
+    <url>accessPermission/ManageSecurity</url>
+    <httpMethod>POST</httpMethod>
+	<parameter name="actionName">
+	<value>ManageSecurity</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.core.security.processor.UpdatePermissionsFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+ </entry>
+   <entry>
+    <url>accessPermission/ManageSecurity</url>
+    <httpMethod>GET</httpMethod>
+	<parameter name="actionName">
+	<value>ManageSecurity</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.core.security.processor.UpdatePermissionsFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+ </entry>
+ <entry>
+    <url>accessPermission/ManageSecurity</url>
+    <httpMethod>POST</httpMethod>
+	<parameter name="actionName">
+	<value>ManageSecurity</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.core.security.forms.UpdatePermissionsFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+ </entry>
+  <entry>
+    <url>accessPermission/multiObjManageSecurity</url>
+    <httpMethod>POST</httpMethod>
+	<parameter name="actionName">
+	<value>multiObjManageSecurity</value>
+	</parameter>
+    <action>EDIT</action>
+ </entry>
+ <entry>
+    <url>accessPermission/multiObjManageSecurity</url>
+    <httpMethod>GET</httpMethod>
+	<parameter name="actionName">
+	<value>multiObjManageSecurity</value>
+	</parameter>
+    <action>EDIT</action>
+ </entry>
+  <entry>
+    <url>accessPermission/multiObjManageSecurity</url>
+    <httpMethod>POST</httpMethod>
+	<parameter name="actionName">
+	<value>multiObjManageSecurity</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+  <entry>
+    <url>accessPermission/multiObjManageSecurity</url>
+    <httpMethod>GET</httpMethod>
+	<parameter name="actionName">
+	<value>multiObjManageSecurity</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+    <entry>
+    <url>generateForm</url>
+    <httpMethod>POST</httpMethod>
+	<parameter name="Action">
+	<value>EDITSECURITYLABELS</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry> 
+  <entry>
+    <url>export</url>
+    <httpMethod>GET</httpMethod>
+	<parameter name="actionName">
+	<value>export</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.netmarkets.model.NmObjectCommands</value>
+	</parameter>
+	<parameter name="wizardActionMethod">
+	<value>exportObjects</value>
+	</parameter>
+	<action>EDIT</action>
+  </entry>
+  <entry>
+    <url>changeNotice/create</url>
+    <httpMethod>GET</httpMethod>
+	<parameter name="actionName">
+	<value>create</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.windchill.enterprise.change2.forms.processors.CreateChangeNoticeFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+    <entry>
+    <url>changeNotice/create</url>
+    <httpMethod>POST</httpMethod>
+	<parameter name="actionName">
+	<value>create</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.windchill.enterprise.change2.forms.processors.CreateChangeNoticeFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+  <entry>
+    <url>changeRequest/create</url>
+    <httpMethod>GET</httpMethod>
+	<parameter name="actionName">
+	<value>create</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.windchill.enterprise.change2.forms.processors.CreateChangeRequestFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+  <entry>
+    <url>changeRequest/create</url>
+    <httpMethod>POST</httpMethod>
+	<parameter name="actionName">
+	<value>create</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.windchill.enterprise.change2.forms.processors.CreateChangeRequestFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+    <entry>
+    <url>changeReview/create</url>
+    <httpMethod>GET</httpMethod>
+	<parameter name="actionName">
+	<value>create</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.windchill.enterprise.change2.forms.processors.CreateChangeReviewFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+    <entry>
+    <url>changeReview/create</url>
+    <httpMethod>POST</httpMethod>
+	<parameter name="actionName">
+	<value>create</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.windchill.enterprise.change2.forms.processors.CreateChangeReviewFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+  <entry>
+    <url>problemReport/create</url>
+    <httpMethod>GET</httpMethod>
+	<parameter name="actionName">
+	<value>create</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.windchill.enterprise.change2.forms.processors.CreateProblemReportFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+    <entry>
+    <url>problemReport/create</url>
+    <httpMethod>GET</httpMethod>
+	<parameter name="actionName">
+	<value>create</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.windchill.enterprise.change2.forms.processors.CreateProblemReportFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+    <entry>
+    <url>problemReport/create</url>
+    <httpMethod>POST</httpMethod>
+	<parameter name="actionName">
+	<value>create</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.windchill.enterprise.change2.forms.processors.CreateProblemReportFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+  <entry>
+    <url>problemReport/create</url>
+    <httpMethod>POST</httpMethod>
+	<parameter name="actionName">
+	<value>create</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.windchill.enterprise.change2.forms.processors.CreateProblemReportFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+  <entry>
+    <url>variance/create</url>
+    <httpMethod>GET</httpMethod>
+	<parameter name="actionName">
+	<value>create</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.windchill.enterprise.change2.forms.processors.CreateVarianceFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+  <entry>
+    <url>variance/create</url>
+    <httpMethod>GET</httpMethod>
+	<parameter name="actionName">
+	<value>create</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.windchill.enterprise.change2.forms.processors.CreateVarianceFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+    <entry>
+    <url>variance/create</url>
+    <httpMethod>POST</httpMethod>
+	<parameter name="actionName">
+	<value>create</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.windchill.enterprise.change2.forms.processors.CreateVarianceFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+  <entry>
+    <url>variance/create</url>
+    <httpMethod>POST</httpMethod>
+	<parameter name="actionName">
+	<value>create</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.windchill.enterprise.change2.forms.processors.CreateVarianceFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+  <entry>
+    <url>promotionRequest/create</url>
+    <httpMethod>GET</httpMethod>
+	<parameter name="actionName">
+	<value>create</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.windchill.enterprise.maturity.forms.processors.CreatePromotionRequestFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+  <entry>
+    <url>promotionRequest/create</url>
+    <httpMethod>GET</httpMethod>
+	<parameter name="actionName">
+	<value>create</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.windchill.enterprise.maturity.forms.processors.CreatePromotionRequestFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+  <entry>
+    <url>promotionRequest/create</url>
+    <httpMethod>POST</httpMethod>
+	<parameter name="actionName">
+	<value>create</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.windchill.enterprise.maturity.forms.processors.CreatePromotionRequestFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+  <entry>
+    <url>promotionRequest/create</url>
+    <httpMethod>POST</httpMethod>
+	<parameter name="actionName">
+	<value>create</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.windchill.enterprise.maturity.forms.processors.CreatePromotionRequestFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+  <entry>
+    <url>note/createNotesWizard</url>
+    <httpMethod>GET</httpMethod>
+	<parameter name="actionName">
+	<value>createNoteMenuAction</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.windchill.enterprise.note.forms.CreateNoteObjectFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+  <entry>
+    <url>note/createNotesWizard</url>
+    <httpMethod>POST</httpMethod>
+	<parameter name="actionName">
+	<value>createNoteMenuAction</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.windchill.enterprise.note.forms.CreateNoteObjectFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+  <entry>
+    <url>doc/createDynamicDocument</url>
+    <httpMethod>GET</httpMethod>
+	<parameter name="actionName">
+	<value>createGraphicInformationElement</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.arbortext.windchill.techpubs.doc.forms.CreateDynamicDocumentFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+  <entry>
+    <url>doc/createDynamicDocument</url>
+    <httpMethod>POST</httpMethod>
+	<parameter name="actionName">
+	<value>createGraphicInformationElement</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.arbortext.windchill.techpubs.doc.forms.CreateDynamicDocumentFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+  <entry>
+    <url>managedcollection/create</url>
+    <httpMethod>GET</httpMethod>
+	<parameter name="actionName">
+	<value>create</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.core.managedcollection.forms.CreateManagedCollectionFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+   <entry>
+    <url>managedcollection/create</url>
+    <httpMethod>POST</httpMethod>
+	<parameter name="actionName">
+	<value>create</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.core.managedcollection.forms.CreateManagedCollectionFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+   <entry>
+    <url>createProductWizard</url>
+    <httpMethod>GET</httpMethod>
+	<parameter name="actionName">
+	<value>createProductWizard</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.windchill.enterprise.product.forms.CreateProductFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+     <entry>
+    <url>createLibraryWizard</url>
+    <httpMethod>GET</httpMethod>
+	<parameter name="actionName">
+	<value>createLibraryWizard</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.windchill.enterprise.library.forms.CreateLibraryFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+    <entry>
+    <url>createLibraryWizard</url>
+    <httpMethod>POST</httpMethod>
+	<parameter name="actionName">
+	<value>createLibraryWizard</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.windchill.enterprise.library.forms.CreateLibraryFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+   <entry>
+    <url>uploadDocumentsFromCompressedFile</url>
+    <httpMethod>POST</httpMethod>
+	<parameter name="actionName">
+	<value>uploadDocumentsFromCompressedFile</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.windchill.enterprise.doc.forms.CreateUploadDocFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry> 
+ <entry>
+    <url>createPartWizard</url>
+    <httpMethod>POST</httpMethod>
+	<parameter name="actionName">
+	<value>createMultiPart</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.windchill.enterprise.part.forms.CreateMultiPartFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+   <entry>
+    <url>createPartWizard</url>
+    <httpMethod>GET</httpMethod>
+	<parameter name="actionName">
+	<value>createMultiPart</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.windchill.enterprise.part.forms.CreateMultiPartFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+  <entry>
+    <url>add_link</url>
+    <httpMethod>POST</httpMethod>
+	<parameter name="actionName">
+	<value>add_link</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.netmarkets.bookmark.processors.CreateLinkFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+    <entry>
+    <url>add_link</url>
+    <httpMethod>GET</httpMethod>
+	<parameter name="actionName">
+	<value>add_link</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.netmarkets.bookmark.processors.CreateLinkFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+  <entry>
+    <url>createECADDesign</url>
+    <httpMethod>POST</httpMethod>
+	<parameter name="actionName">
+	<value>createECADDesign</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.windchill.uwgm.cadx.createecaddesign.forms.CreateECADDesignFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+  <entry>
+    <url>createNoteFromTemplate</url>
+    <httpMethod>POST</httpMethod>
+	<parameter name="actionName">
+	<value>createNoteFromTemplateMenuAction</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.windchill.enterprise.note.forms.CreateNoteFromTemplateObjectFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+  <entry>
+    <url>createNoteFromTemplate</url>
+    <httpMethod>GET</httpMethod>
+	<parameter name="actionName">
+	<value>createNoteFromTemplateMenuAction</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.windchill.enterprise.note.forms.CreateNoteFromTemplateObjectFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+  <entry>
+    <url>createBaseline</url>
+    <httpMethod>POST</httpMethod>
+	<parameter name="actionName">
+	<value>createBaseline</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.windchill.enterprise.baseline.forms.CreateBaselineFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+  <entry>
+    <url>createBaseline</url>
+    <httpMethod>GET</httpMethod>
+	<parameter name="actionName">
+	<value>createBaseline</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.windchill.enterprise.baseline.forms.CreateBaselineFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+  <entry>
+    <url>document/edit</url>
+    <httpMethod>POST</httpMethod>
+	<parameter name="actionName">
+	<value>edit</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.core.components.forms.EditWorkableFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+    <entry>
+    <url>document/edit</url>
+    <httpMethod>GET</httpMethod>
+	<parameter name="actionName">
+	<value>edit</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.core.components.forms.EditWorkableFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+    <entry>
+    <url>document/edit</url>
+    <httpMethod>POST</httpMethod>
+	<parameter name="actionName">
+	<value>editGWT</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.core.components.forms.EditWorkableFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+  <entry>
+    <url>document/edit</url>
+    <httpMethod>GET</httpMethod>
+	<parameter name="actionName">
+	<value>edit</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.core.components.forms.EditWorkableFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+  <entry>
+    <url>edit</url>
+    <httpMethod>POST</httpMethod>
+	<parameter name="actionName">
+	<value>edit</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.core.components.forms.EditWorkableFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+  <entry>
+    <url>object/list_copy</url>
+    <httpMethod>POST</httpMethod>
+	<action>EDIT</action>
+  </entry>
+  <entry>
+    <url>object/copy</url>
+    <httpMethod>POST</httpMethod>
+	<action>EDIT</action>
+  </entry>
+    <entry>
+    <url>list_cut</url>
+    <httpMethod>POST</httpMethod>
+    <action>EDIT</action>
+  </entry>
+    <entry>
+    <url>object/cut</url>
+    <httpMethod>POST</httpMethod>
+    <action>EDIT</action>
+  </entry>
+   <entry>
+    <url>editProductWizard</url>
+    <httpMethod>POST</httpMethod>
+	<parameter name="actionName">
+	<value>editProductWizard</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.windchill.enterprise.container.forms.EditContainerFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+  <entry>
+    <url>editProductWizard</url>
+    <httpMethod>GET</httpMethod>
+	<parameter name="actionName">
+	<value>editProductWizard</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.windchill.enterprise.container.forms.EditContainerFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+  <entry>
+    <url>folder/edit</url>
+    <httpMethod>GET</httpMethod>
+	<parameter name="actionName">
+	<value>edit</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.windchill.enterprise.folder.forms.EditFolderFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+</entry>
+ <entry>
+    <url>folder/edit</url>
+    <httpMethod>POST</httpMethod>
+	<parameter name="actionName">
+	<value>edit</value>
+	</parameter>
+	<parameter name="wizardActionClass">
+	<value>com.ptc.windchill.enterprise.folder.forms.EditFolderFormProcessor</value>
+	</parameter>
+    <action>EDIT</action>
+ </entry>
+ <entry>
+    <url>editPartCommonAttrsWizard</url>
+    <httpMethod>POST</httpMethod>
+	<parameter name="actionName">
+	<value>editPartCommonAttrsWizard</value>
+	</parameter>
+    <action>EDIT</action>
+ </entry>
+ <entry>
+    <url>editPartCommonAttrsWizard</url>
+    <httpMethod>GET</httpMethod>
+	<parameter name="actionName">
+	<value>editPartCommonAttrsWizard</value>
+	</parameter>
+    <action>EDIT</action>
+ </entry>
+ <entry>
+    <url>servlet/WindchillAuthGW</url>
+    <httpMethod>GET</httpMethod>
+	<parameter name="action">
+	<value>WFSAVEAS</value>
+	</parameter>
+    <action>EDIT</action>
+ </entry>
+ <entry>
+    <url>servlet/WindchillAuthGW</url>
+    <httpMethod>POST</httpMethod>
+	<parameter name="action">
+	<value>WFSAVEAS</value>
+	</parameter>
+    <action>EDIT</action>
+ </entry>
+<entry>
+    <url>edit</url>
+    <httpMethod>POST</httpMethod>
+	<parameter name="actionName">
+	<value>edit</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+     <entry>
+    <url>edit</url>
+    <httpMethod>GET</httpMethod>
+	<parameter name="actionName">
+	<value>edit</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+  
+  <entry>
+    <url>create</url>
+    <httpMethod>POST</httpMethod>
+	<parameter name="actionName">
+	<value>createToolbar</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+     <entry>
+    <url>create</url>
+    <httpMethod>GET</httpMethod>
+	<parameter name="actionName">
+	<value>createToolbar</value>
+	</parameter>
+    <action>EDIT</action>
+  </entry>
+</actionMapping>

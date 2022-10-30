@@ -1,0 +1,169 @@
+<project name="Nextlabs.WindchillPEP" default="main" basedir=".">
+	<description>
+		Create a Java Project (JAR) with Ant build script
+	</description>
+
+	<property name="projectName" value="Nextlabs.WindchillPEP" />
+
+	<!-- Java sources -->
+	<property name="src.dir" location="src" />
+
+	<!-- external libraries -->
+	<property name="lib.dir" location="../../common/xlib/jar" />
+
+	<!-- libraries to be packaged into jarlib -->
+	<property name="external.lib.dir" location="../../common/jarlib" />
+
+	<!-- Java classes -->
+	<property name="build.dir" location="bin" />
+
+	<!-- Output, Jar -->
+	<property name="dist.dir" location="../../common/dist" />
+		
+	<!-- properties, file -->
+	<property name="prop.dir" location="../../common/properties" />
+
+	<!-- nextlab, Jar -->
+	<!-- <property name="jar.dir" location="jarlib" />	-->
+	<path id="master-classpath">
+		<fileset dir="${lib.dir}">
+			<include name="*.jar" />
+		</fileset>
+
+		<fileset dir="${lib.dir}/JAXWSJars">
+			<include name="*.jar" />
+		</fileset>
+
+		<fileset dir="${lib.dir}/JTagger/Java7">
+			<include name="*.jar" />
+		</fileset>
+
+		<fileset dir="${lib.dir}/windchill/codebase/WEB-INF/lib">
+			<include name="*.jar" />
+		</fileset>
+
+		<fileset dir="${lib.dir}/windchill/lib">
+			<include name="*.jar" />
+		</fileset>
+
+		<fileset dir="${lib.dir}/windchill/srclib">
+			<include name="*.jar" />
+		</fileset>
+
+		<fileset dir="${lib.dir}/windchill/srclib/wnc">
+			<include name="*.jar" />
+		</fileset>
+
+		<fileset dir="${lib.dir}/windchill/srclib/">
+			<include name="*.jar" />
+		</fileset>
+
+		<fileset dir="${lib.dir}/windchill/srclib/tool">
+			<include name="*.jar" />
+		</fileset>
+		<fileset dir="${lib.dir}/windchill/srclib/sisipc">
+			<include name="*.jar" />
+		</fileset>
+		<fileset dir="${lib.dir}/windchill/srclib/rialto">
+			<include name="*.jar" />
+		</fileset>
+		<fileset dir="${lib.dir}/windchill/srclib/jtagger">
+			<include name="*.jar" />
+		</fileset>
+		<fileset dir="${lib.dir}/windchill/srclib/reql">
+			<include name="*.jar" />
+		</fileset>
+		<fileset dir="${lib.dir}/windchill/srclib/prowt">
+			<include name="*.jar" />
+		</fileset>
+		<fileset dir="${lib.dir}/windchill/srclib/pdml">
+			<include name="*.jar" />
+		</fileset>
+
+		<fileset dir="${lib.dir}/windchill/srclib/jmxcore">
+			<include name="*.jar" />
+		</fileset>
+		<fileset dir="${lib.dir}/windchill/srclib/install">
+			<include name="*.jar" />
+		</fileset>
+		<fileset dir="${lib.dir}/windchill/srclib/ie">
+			<include name="*.jar" />
+		</fileset>
+		<fileset dir="${lib.dir}/windchill/srclib/dpinfra">
+			<include name="*.jar" />
+		</fileset>
+	</path>
+
+
+	<target name="init">
+		<!-- Create the time stamp -->
+		<tstamp />
+		<!-- Create the build directory structure used by compile -->
+		<mkdir dir="${build.dir}" />
+	</target>
+
+
+
+
+	<target name="compile" depends="init" description="compile the source ">
+		<!-- Compile the java code from ${src.dir} into ${build.dir} -->
+		<javac includeantruntime="false" destdir="${build.dir}" debug="true">
+			<src path="${src.dir}" />
+			<classpath refid="master-classpath" />
+		</javac>
+	</target>
+
+	<target name="dist" depends="compile" description="package, output to JAR">
+
+		<!-- Create the distribution directory -->
+		<mkdir dir="${dist.dir}" />
+
+		<!-- Put everything in ${build} into the {$projectName}-${DSTAMP}.jar file -->
+		<!--	<jar jarfile="${dist.dir}/${projectName}-${DSTAMP}.jar" basedir="${build.dir}">
+			<zipgroupfileset dir="${lib.jar}" includes="*.jar"/> 
+			<manifest>
+				
+
+				<attribute name="Main-Class" value="com.mkyong.core.utils.DateUtils" />
+			</manifest>
+		</jar> -->
+
+		<!-- <delete file="${dist.dir}/${projectName}-${DSTAMP}.jar" />
+        <one-jar destfile="${dist.dir}/${projectName}-${DSTAMP}.jar" >
+            <main>
+                <fileset dir="${build.dir}"/>
+            </main>
+            <lib>
+                <fileset dir="${external.lib.dir}" />
+            </lib>
+        </one-jar> -->
+
+		<jar destfile="${dist.dir}/${projectName}-${DSTAMP}.jar" basedir="${build.dir}" >
+<!--			<fileset dir="${classes.dir}" includes="**/*.class" /> -->
+<!--			<zipgroupfileset dir="${external.lib.dir}" includes="**/*.jar" /> -->
+			<fileset dir="${external.lib.dir}" includes="**/*.jar" />
+			<fileset dir="${prop.dir}" includes="denypage.html" />
+			<fileset dir="${prop.dir}" includes="obligations.xml" />
+			<fileset dir="${prop.dir}" includes="nxl.png" />
+			<fileset dir="${prop.dir}" includes="pep.properties" />
+			<fileset dir="${prop.dir}" includes="rmpcconfig.properties" />
+			<fileset dir="${prop.dir}" includes="rmskmc-keystore.jks" />
+			<fileset dir="${prop.dir}" includes="rmskmc-truststore.jks" />
+			<fileset dir="${prop.dir}" includes="verify.jsp" />
+			<fileset dir="." includes="com/ptc/windchill/enterprise/attachments/server/*" />
+<!--			<fileset dir="${basedir}">
+      			<include name="config/*.properties"/> 
+   			</fileset>-->
+		</jar>
+
+	</target>
+
+	<target name="clean" description="clean up">
+		<delete dir="${build.dir}" />
+		<delete dir="${dist.dir}" />
+	</target>
+
+	<!-- Default, run this -->
+	<target name="main" depends="clean, compile, dist" />
+
+</project>

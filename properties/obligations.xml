@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<Configuration>
+	<Obligations>
+		<Obligation name="FTPADAPTER" 	type="com.nextlabs.ext.FtpAdapterObligation" disabled="yes" />
+		<Obligation name="PTCWCEDRM" 	type="com.nextlabs.ext.EdrmObligation" disabled="yes" />
+		<Obligation name="DENYOB" 		type="com.nextlabs.ext.DenyObligation" disabled="no" />
+	</Obligations>
+</Configuration>

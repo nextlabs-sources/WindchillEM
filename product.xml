@@ -1,0 +1,44 @@
+<Obligation>
+	<DisplayName>Windchill DCE Protection on Download</DisplayName> 
+	<RunAt>PEP</RunAt> 
+	<Name>WDRM</Name> 
+	<Arguments>
+		<Argument usereditable="false">
+			<Name>Tags for Primary Content</Name>
+			<Value default="true">From Security Labels</Value>
+		</Argument>
+		<Argument usereditable="true">
+			<Name>Tags for Attachments</Name>
+			<Value default="true">From Security Labels</Value>
+			<Value default="true">From Attachment Tags Field</Value>
+		</Argument>
+	</Arguments>
+</Obligation>
+<Obligation>
+		<DisplayName>Windchill DCE Upload Handler</DisplayName> 
+		<RunAt>PEP</RunAt> 
+		<Name>TAGUPLOAD</Name> 
+		<Arguments>
+				<Argument usereditable="true">
+					<Name>Tag Names</Name>
+				</Argument>
+				<Argument usereditable="false">
+					<Name>Retain Attachment Tags</Name>
+					<Value default="false">NO</Value>
+					<Value default="true">YES</Value>
+		</Arguments>
+</Obligation>
+
+
+<Action>
+    <Name>UPLOAD</Name>
+	<DisplayName>Upload</DisplayName>
+	<ShortName>UP</ShortName>
+	<Category>Access</Category>
+</Action>
+<Action>
+    <Name>DOWNLOAD</Name>
+	<DisplayName>Download</DisplayName>
+	<ShortName>DL</ShortName>
+	<Category>Access</Category>
+</Action>

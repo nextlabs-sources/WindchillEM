@@ -1,0 +1,1 @@
+{'response':[{'target_object':' ','validation_key':'null', 'secret_key':'0', 'status':'DENIED','feedback':[{'type':'INFO', 'message':'ATTENTION:\x20\x20Access\x20Denied\x20-\x20NextLabs\x20\x0AYou\x20cannot\x20modify\x20this\x20object\x20because\x20you\x20do\x20not\x20have\x20it\x20permission.'}]}]}
